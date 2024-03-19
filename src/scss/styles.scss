@@ -1,0 +1,71 @@
+
+
+@import "mixins";
+@import "variables";
+
+.lazy-image-container {
+   
+    width: 250px;
+    height: 250px;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+    //display 5 images
+    @include mQ(1024px) {
+        @include grid(5, 10px);
+    }
+    
+    // display 2 images
+    @include mQ(768px, 1023px) {
+         @include grid(2, 10px);
+    }
+
+    //display 1 image   
+    @include mQ(0px, 767px) {
+         @include grid(1, 10px);
+    }
+
+    .lazy-image {
+        width: 100%;
+        height: 100%;
+    
+        background-size: cover; // Make sure the background image covers the entire container
+        background-position: center; // The image is displayed centered in the container
+        cursor: pointer;
+       
+        
+    }
+
+    .form-check-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .form-check {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 1px solid $lightGrey;
+        padding: 3px;
+    }
+
+    //Styling the checked state of a checkbox
+    .form-check-input:checked+.lazy-image::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 3px solid $styledLight;
+    }
+}

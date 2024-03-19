@@ -1,0 +1,68 @@
+.lazy-image-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden; }
+  @media screen and (max-width: 1024px) {
+    .lazy-image-container {
+      float: left;
+      width: calc((100% - (($cols - 1) * $mgn)) / $cols);
+      margin-right: 10px;
+      margin-bottom: 10px; }
+      .lazy-image-container:nth-child(5n) {
+        margin-right: 0; }
+      .lazy-image-container:nth-last-child(-n + 5) {
+        margin-bottom: 0; } }
+  @media screen and (max-width: 768px) and (min-width: 1023px) {
+    .lazy-image-container {
+      float: left;
+      width: calc((100% - (($cols - 1) * $mgn)) / $cols);
+      margin-right: 10px;
+      margin-bottom: 10px; }
+      .lazy-image-container:nth-child(2n) {
+        margin-right: 0; }
+      .lazy-image-container:nth-last-child(-n + 2) {
+        margin-bottom: 0; } }
+  @media screen and (max-width: 0px) and (min-width: 767px) {
+    .lazy-image-container {
+      float: left;
+      width: calc((100% - (($cols - 1) * $mgn)) / $cols);
+      margin-right: 10px;
+      margin-bottom: 10px; }
+      .lazy-image-container:nth-child(1n) {
+        margin-right: 0; }
+      .lazy-image-container:nth-last-child(-n + 1) {
+        margin-bottom: 0; } }
+  .lazy-image-container .lazy-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer; }
+  .lazy-image-container .form-check-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1; }
+  .lazy-image-container .form-check {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid #f3f2f2;
+    padding: 3px; }
+  .lazy-image-container .form-check-input:checked + .lazy-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red; }

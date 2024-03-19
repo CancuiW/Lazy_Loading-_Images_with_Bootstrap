@@ -1,0 +1,15 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cancui",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "uglify-js": "^3.17.4"
+  }
+}

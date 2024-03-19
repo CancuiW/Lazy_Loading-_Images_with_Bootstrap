@@ -1,0 +1,46 @@
+
+//$cols:numbers of columns  $mgn:the margin that each of the elements
+@mixin grid($cols, $mgn) {
+    float: left;
+    width: calc((100% - (($cols - 1) * $mgn)) / $cols);
+    margin-right: $mgn; 
+    margin-bottom: $mgn; 
+
+    // Remove margin-right for the last child in each row
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+
+    // Remove margin-bottom for the last row
+    &:nth-last-child(-n + #{$cols}) {
+        margin-bottom: 0;
+    }
+}
+
+// @mixin mQ for media query
+// @content keyword represent the specifed content in SCSS
+
+
+//multiple arguments will use If statements
+@mixin mQ($args...) {
+    @if length($args)==1 {
+        @media screen and (max-width: nth($args, 1)) {
+
+            @content;
+        }
+    }
+
+    @if length($args)==2 {
+        @media screen and (max-width: nth($args, 1)) and (min-width: nth($args, 2)) {
+            @content;
+        }
+    }
+}
+
+//only one argument 
+// @mixin mQ($args) {
+//   @media screen and (max-width:$args){
+//     @content;
+//   }
+
+// }
